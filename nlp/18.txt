@@ -1,0 +1,28 @@
+Edumo.uz platformasi O‘zbekistondagi o‘quvchilar va ta’lim markazlari uchun keng qamrovli raqamli ta’lim xizmatlarini taklif etadi. Platforma quyidagi asosiy funksiyalarga ega:
+
+Onlayn Kurslar va O‘quv Materiallari:
+
+Edumo.uz foydalanuvchilarga turli mavzular bo‘yicha onlayn kurslar va o‘quv materiallariga kirish imkoniyatini taqdim etadi. Bu kurslar matematika, fizika, informatika kabi an’anaviy fanlardan tortib, IELTS, SAT kabi xalqaro imtihonlarga tayyorgarlik kurslarigacha qamrab oladi.
+Testlar va Imtihon Tayyorlash:
+
+Platformada foydalanuvchilar turli testlarni yechishlari va o‘zlarining bilim darajasini sinab ko‘rishlari mumkin. Bu testlar nafaqat bilimni baholash uchun, balki imtihonlarga tayyorgarlik ko‘rishda ham qo‘llaniladi.
+O‘qituvchilar va Talabalar Ustuvorligi:
+
+Edumo.uz o‘qituvchilar va talabalar o‘rtasida interaktiv aloqalarni o‘rnatishga yordam beradi. O‘qituvchilar o‘z kurslarini yarata oladi va o‘quvchilarga taqdim eta oladi. Talabalar esa o‘z rivojlanishlarini kuzatib borishlari va o‘qituvchilardan maslahat olishlari mumkin.
+Gamifikatsiya:
+
+Platforma gamifikatsiya elementlarini qo‘llaydi, ya’ni foydalanuvchilar ma’lum bir topshiriqlarni bajarganlari uchun mukofotlar (masalan, ballar, yutuqlar, medal) oladilar. Bu o‘qitishni qiziqarliroq va rag‘batlantiruvchi qiladi.
+Mobil Ilovalar:
+
+Edumo.uz platformasi mobil qurilmalarda ham mavjud bo‘lib, foydalanuvchilar istalgan joyda va vaqtda o‘qish imkoniyatiga ega.
+Shaxsiylashtirilgan Ta’lim:
+
+Platforma foydalanuvchilar uchun shaxsiy o‘qitish rejalari va tavsiyalarni taqdim etadi, bu esa har bir foydalanuvchining ehtiyojlari va darajasiga moslashadi.
+Integratsiyalar:
+
+Edumo.uz boshqa ta’lim platformalari va xizmatlar bilan integratsiyalash imkoniyatiga ega, bu esa kengroq o‘quv tajribasini ta’minlaydi.
+Umuman olganda, Edumo.uz o‘z foydalanuvchilariga zamonaviy ta’lim texnologiyalaridan foydalanish imkonini beruvchi ko‘p funksiyali platforma bo‘lib, u ta’lim jarayonini yanada samarali va qiziqarli qiladi.
+
+Aloqa uchun:
+
+Telegramda @javlon_developer profili orqali yoki telegram guruh speakup_chat. Tel raqam: +998 88 068 17 38
