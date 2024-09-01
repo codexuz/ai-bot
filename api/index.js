@@ -9,7 +9,7 @@ const botRoutes = require('../routes/botRoutes');
 const qaRoutes = require('../routes/qaRoutes');
 const nlpRoutes = require('../routes/nlpRoutes');
 const webhookRoutes = require('../routes/webhookRoutes');
-
+const fileRoutes = require('../routes/fileRoutes')
 const app = express();
 
 // Middleware
@@ -20,6 +20,7 @@ app.use('/api/bot', botRoutes);
 app.use('/api/qa', qaRoutes);
 app.use('/api/nlp', nlpRoutes);
 app.use('/api/webhook', webhookRoutes);
+app.use('/api/file', fileRoutes)
 
 
 // Start server
