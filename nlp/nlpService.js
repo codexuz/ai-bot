@@ -12,7 +12,7 @@ const model = new ChatOpenAI({
 });
 
 const prompt = ChatPromptTemplate.fromTemplate(
-  `Answer the user's question only using the information provided in the context. If user's question is not avaible in the context, search related data to the company and answer. If the answer to the user's question is not related to company, respond with "Afsuski, sizning savolingizga javob bera olmayman. Bu bo'yicha bilimga ega emasman." 
+  `Answer the user's question only using the information provided in the context. If user's question is not avaible in the context, search related data to the company from the internet and answer. If the answer to the user's question is not related to company, respond with "Afsuski, sizning savolingizga javob bera olmayman. Bu bo'yicha bilimga ega emasman." 
   Context: {context}
   Question: {input}`
 );
