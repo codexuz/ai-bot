@@ -1,23 +1,8 @@
-// server/services/langchainService.js
 const { ChatOpenAI } = require("@langchain/openai");
 const { ChatPromptTemplate } = require("@langchain/core/prompts");
-const { Document } = require("@langchain/core/documents");
 const { createStuffDocumentsChain } = require("langchain/chains/combine_documents");
 const supabase = require('../config/database');
-const { TextLoader } = require("langchain/document_loaders/fs/text");
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
-
-const downloadFile = async (url, outputPath) => {
-  const response = await axios.get(url, { responseType: 'stream' });
-  return new Promise((resolve, reject) => {
-    const writer = fs.createWriteStream(outputPath);
-    response.data.pipe(writer);
-    writer.on('finish', resolve);
-    writer.on('error', reject);
-  });
-};
 
 const model = new ChatOpenAI({
   apiKey: process.env.apiKey,
@@ -44,26 +29,25 @@ const getLangChainResponse = async (botId, question) => {
       throw new Error('Could not retrieve context for the bot');
     }
 
-    const localPath = path.join(__dirname, `./${botId}.txt`);
+    // Assuming the contextText is a URL, fetch its content directly
+    let contextData;
+    if (data.contextText.startsWith('http')) {
+      const response = await axios.get(data.contextText);
+      contextData = response.data;
+    } else {
+      // If contextText is not a URL but the actual text, use it directly
+      contextData = data.contextText;
+    }
+
+    // Create the chain without needing to load from a file
     const chain = await createStuffDocumentsChain({
       llm: model,
       prompt
     });
 
-    if (!fs.existsSync(localPath)) {
-      console.log('File does not exist, downloading...');
-      await downloadFile(data.contextText, localPath);
-      console.log('File downloaded successfully');
-    } else {
-      console.log('File already exists');
-    }
-
-    const loader = new TextLoader(localPath);
-    const docs = await loader.load();
-
     const response = await chain.invoke({
       input: question,
-      context: docs
+      context: contextData
     });
 
     return response;
