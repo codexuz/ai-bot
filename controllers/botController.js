@@ -1,6 +1,7 @@
 const supabase = require('../config/database');
 const TelegramService = require('../telegramService');
 const { getBotsByUserId, getBotByUserId, updateBot, deleteBot } = require('../models/botModel');
+const { getTelegramBotInfo } = require('../utils/helper');
 
 const createBot = async (req, res) => {
   const { name, description, botToken } = req.body;
@@ -14,9 +15,11 @@ const createBot = async (req, res) => {
 
     // Set the Telegram webhook
     await telegramService.setWebhook(webhookUrl);
+    const telegramInfo = await getTelegramBotInfo(botToken);
+    console.log(telegramInfo);
 
     // Save bot info in Supabase
-    const { data, error } = await supabase.from('bots').insert([{ name, description, user_id: userId, bot_token: botToken, webhook_url: webhookUrl }]);
+    const { data, error } = await supabase.from('bots').insert([{ name, description, user_id: userId, bot_token: botToken, webhook_url: webhookUrl, integration_link: 'https://ai-bot-chi.vercel.app/api/nlp/query/', tg_data: telegramInfo }]);
 
     if (error) return res.status(400).json({ error: error.message });
 
