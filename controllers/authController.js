@@ -1,5 +1,3 @@
-// server/controllers/authController.js
-
 const supabase = require('../config/database');
 
 // Register a new user
@@ -29,4 +27,21 @@ exports.login = async (req, res) => {
   if (error) return res.status(400).json({ error: error.message });
 
   res.json({ message: 'User logged in successfully', data });
+};
+
+// Google OAuth Login/Signup
+exports.googleAuth = async (req, res) => {
+  const { credential } = req.body;
+  console.log(credential)
+
+  const { data, error } = await supabase.auth.signInWithIdToken({
+    provider: 'google',
+    token: credential,
+    nonce: '<NONCE>',
+  })
+    
+
+  if (error) return res.status(400).json({ error: error.message });
+
+  res.json({ message: 'Redirecting to Google for authentication', data });
 };
