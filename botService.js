@@ -8,8 +8,9 @@ class BotService {
     // Set Telegram webhook
     await telegramService.setWebhook(webhookUrl);
 
+    const url = "https://ai-agent-one.vercel.app/api/nlp/query"
     // Save bot info in Supabase
-    const { data, error } = await supabase.from('bots').insert([{ user_id: userId, bot_token: botToken, webhook_url: webhookUrl }]);
+    const { data, error } = await supabase.from('bots').insert([{ user_id: userId, bot_token: botToken, webhook_url: webhookUrl, integration_link: url }]);
 
     if (error) throw new Error(error.message);
 
