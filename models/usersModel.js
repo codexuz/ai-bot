@@ -4,13 +4,13 @@ const supabase = require('../config/database');
 
 async function saveUser(message) {
     const { data, error } = await supabase
-        .from('users')
+        .from('telegram_users')
         .insert([
             {
                 telegram_id: message.chat.id,
-                username: message.chat.username,
-                first_name: message.chat.first_name,
-                last_name: message.chat.last_name,
+                username: message.chat.username || '',
+                first_name: message.chat.first_name || '',
+                last_name: message.chat.last_name || '',
                 type: message.chat.type
             }
         ]);
