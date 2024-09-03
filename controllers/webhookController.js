@@ -1,16 +1,15 @@
 const supabase = require('../config/database');
 const TelegramService = require('../telegramService');
-const { registerTelegamUserId } = require('../utils/helper');
+const { saveUser } = require('../models/usersModel');
 
 const handleWebhook = async (req, res) => {
   const { botToken } = req.params;
   const { message } = req.body;
   const chatId = message.chat.id;
   const text = message.text;
-  console.log(botToken)
+  console.log(botToken, message);
   try {
     // Fetch bot details using the botId
-    await registerTelegamUserId(chatId);
     const { data: bots, error } = await supabase.from('bots')
     .select('*')
     .eq('bot_token', botToken)
@@ -20,11 +19,12 @@ const handleWebhook = async (req, res) => {
       return res.status(404).json({ error: 'Bot not found' });
     }
 
-    console.log(bots)
+    //console.log(bots)
     const telegramService = new TelegramService(bots.bot_token);
     console.log(telegramService)
     // Handle different commands or text inputs
     if (text === '/start') {
+      await saveUser(message);
       await telegramService.sendMessage(chatId, "Assalomu alaykum! Botimizga xush kelibsiz! Kompaniyamiz bo'yicha sizni qiziqtirgan savollarga javob berishim mumkin?");
     }
 
