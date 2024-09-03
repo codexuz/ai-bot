@@ -3,10 +3,10 @@
 const supabase = require('../config/database');
 
 // Create a new question-answer pair
-const createQA = async (botId, contextText) => {
+const createQA = async (botId, contextText, file) => {
   const { data, error } = await supabase
     .from('bots')
-    .update({contextText: contextText})
+    .update({contextText: contextText, file: file})
     .eq('id', botId)
   if (error) {
     throw new Error(error.message);
