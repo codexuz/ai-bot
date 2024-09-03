@@ -69,7 +69,9 @@ const updateBot = async (botId, botData) => {
 const deleteBot = async (botId) => {
   
   const { data, error } = await supabase
-    .rpc('delete_bot', { bot_id_to_delete: botId }) 
+    .from('bots')
+    .delete()
+    .eq('id', botId)
 
   if (error) {
     throw new Error(error.message);
