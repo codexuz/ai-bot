@@ -5,10 +5,10 @@ const { createQA, getQAByBotId, updateQA, deleteQA } = require('../models/qaMode
 // Create a new question-answer pair
 exports.createQA = async (req, res) => {
   const { botId } = req.params
-  const { contextText } = req.body;
+  const { contextText, file } = req.body;
   console.log(botId)
   try {
-    const qa = await createQA(botId, contextText);
+    const qa = await createQA(botId, contextText, file);
     res.status(201).json({ message: 'Q&A created successfully', qa });
   } catch (error) {
     res.status(500).json({ error: error.message });
